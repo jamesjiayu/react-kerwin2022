@@ -1,6 +1,13 @@
 import React, { Component } from 'react'
 class Box extends Component {
+  shouldComponentUpdate (nextProps, nextState) { //not easy to understand
+    if (this.props.current === this.props.index || nextProps.current === nextProps.index) {
+      return true //nextProps, no this.nextProps
+    }
+    return false
+  }
   render () {
+    console.log('render in Child')
     return (
       <div style={{
         width: '100px',
@@ -21,7 +28,11 @@ export default class LifeCycUpdate extends Component {
   }
   render () {
     return (<React.Fragment>
-      <input type="numver" />
+      <input type="number" value={this.state.current}
+        onChange={(evt) => {
+          //console.log(evt)
+          this.setState({ current: Number(evt.target.value) })
+        }} />
       <div style={{ overflow: 'hidden' }}>
         {
           this.state.list.map((item, index) => <Box
