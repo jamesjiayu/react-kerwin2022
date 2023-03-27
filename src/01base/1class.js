@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 //import { connect } from 'react-redux'
+//console.log(React.createElement("div", null, "hhhhhhhhh"))
 
 export default class App extends Component {
   render () {

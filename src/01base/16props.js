@@ -3,6 +3,10 @@ import Navbar from './Navbar' //如果只有1个js，就可以省略写
 import Sidebar from './Sidebar'
 export default class PropApp extends Component {
   render () {
+    let ch = this.props.children//null, "string",[1,2,2,5,5]
+    console.log(ch)
+    ch = React.Children.toArray(ch)//null=>[], "string"=>["string"]
+    console.log('React.Children.toArray(ch) : ', ch)
     return (
       <div>
         <div> <h1>HOME</h1>
